@@ -1,0 +1,11 @@
+services:
+  env:
+    container_name: node-env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    - type: bind
+      source: ../../app/
+      target: /usr/src/app 
+    tty: true
