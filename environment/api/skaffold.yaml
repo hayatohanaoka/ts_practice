@@ -1,0 +1,20 @@
+apiVersion: skaffold/v4beta10
+kind: Config
+metadata:
+  name: node-env
+
+build:
+  artifacts:
+    - image: nginx
+      context: ../../app
+      docker:
+        dockerfile: ./Dockerfile
+deploy:
+  helm:
+    releases:
+      - name: nginx
+        chartPath: helm/deployment
+        valuesFiles:
+          - helm/values.yaml
+        setValueTemplates:
+          image: nginx
