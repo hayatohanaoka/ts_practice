@@ -6,7 +6,7 @@ import OriginalForm from './components/form/Form.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App arg1='hello' color='red'/>
+    <App />
     <OriginalForm />
   </StrictMode>,
 )

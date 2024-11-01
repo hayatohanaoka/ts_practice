@@ -11,7 +11,7 @@ function OriginalForm() {
     setMessage("Hello "+input);
   }
   return (
-    <div className='App'>
+    <div className='AppForm'>
       <h1>{message}</h1>
       <div>
         <input type='text' onChange={doInput}/>
