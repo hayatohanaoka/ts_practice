@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import urls from "../urls";
+import { apiUrls } from "../urls";
 
 async function getSampleData(url: string) {
     const res = await fetch(url, { cache: "no-cache" });
@@ -12,7 +12,7 @@ export default function Home() {
 
     const [query, setQuery] = useState('no fetched');
     function doAction() {
-        getSampleData(urls.apiUrls[0]).then( (res) => {
+        getSampleData(apiUrls[0]).then( (res) => {
             setQuery(res.searchQuery);
         })
     }

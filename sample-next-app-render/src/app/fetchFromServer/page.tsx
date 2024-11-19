@@ -1,6 +1,6 @@
 
 "use server";
-import urls from "../urls";
+import { apiUrls } from "../urls";
 
 async function getSampleData(url: string){
   const res = await fetch(url, {cache: "no-store"});
@@ -9,7 +9,7 @@ async function getSampleData(url: string){
 }
 
 export default async function Home() {
-  const fetchedData = await getSampleData(urls.apiUrls[0]);
+  const fetchedData = await getSampleData(apiUrls[0]);
   return (
     <main>
       <h1>Index Page</h1>
