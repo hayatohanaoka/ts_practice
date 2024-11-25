@@ -1,19 +1,14 @@
 
 "use server";
-import { apiUrls } from "../urls";
 
-async function getSampleData(url: string){
-  const res = await fetch(url, {cache: "no-store"});
-  const result = await res.json();
-  return result;
-}
+import { SearQueryUseCase } from "@/main/usecase/searchQueryUseCase";
 
 export default async function Home() {
-  const fetchedData = await getSampleData(apiUrls[0]);
+  const searchQuery = await SearQueryUseCase.getSearchQuery("/v1/industries/UBI100100100/searchQuery");
   return (
     <main>
       <h1>Index Page</h1>
-      <p>{fetchedData.searchQuery}</p>
+      <p>{searchQuery}</p>
     </main>
   )
 }
