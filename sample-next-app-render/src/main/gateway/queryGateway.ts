@@ -1,8 +1,8 @@
 import { SearchQueryPort } from "@/main/port/searchQueryPort";
-import { SearchQueryDriver } from "@/main/driver/searchQuerDriver";
+import { searchQueryDriver } from "../dependecyInjection";
 
 export class SearchQueryGateway implements SearchQueryPort {
   async fetchSearchQuery(searchQueryPath: string): Promise<string> {
-    return await SearchQueryDriver.getSearchQuery(searchQueryPath);
+    return await searchQueryDriver.getSearchQuery(searchQueryPath);
   }
 }

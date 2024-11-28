@@ -1,7 +1,8 @@
+import { SearchQueryDriver } from "../driverPort/searchQuery";
 
-export class SearchQueryDriver {
+export class SearchQueryDriverImpl implements SearchQueryDriver {
 
-  public static async getSearchQuery(searchQueryPath: string): Promise<string> {
+  async getSearchQuery(searchQueryPath: string): Promise<string> {
     return await fetch(new URL(searchQueryPath, this._getBaseUrl()), {cache: "no-store"}).then(
       (response) => response.json()
     ).then(
@@ -9,7 +10,7 @@ export class SearchQueryDriver {
     );
   }
 
-  static _getBaseUrl() {
+  _getBaseUrl() {
     return new URL("http://0.0.0.0:8080/");
   }
 

@@ -1,8 +1,7 @@
-import { SearchQueryPort } from "@/main/port/searchQueryPort";
-import { SearchQueryGateway } from "@/main/gateway/queryGateway";
+import { searchQueryPort } from "../dependecyInjection";
 
 export class SearQueryUseCase {
   public static async getSearchQuery(searchQueryPath: string): Promise<string> {
-    return await new SearchQueryGateway().fetchSearchQuery(searchQueryPath);
+    return await searchQueryPort.fetchSearchQuery(searchQueryPath);
   }
 }
