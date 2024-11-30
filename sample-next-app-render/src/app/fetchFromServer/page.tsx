@@ -1,10 +1,10 @@
 
 "use server";
 
-import { SearQueryUseCase } from "@/main/usecase/searchQueryUseCase";
+import { searchQueryUseCase } from "@/main/dependecyInjection";
 
 export default async function Home() {
-  const searchQuery = await SearQueryUseCase.getSearchQuery("/v1/industries/UBI100100100/searchQuery");
+  const searchQuery = await searchQueryUseCase.getSearchQuery("/v1/industries/UBI100100100/searchQuery");
   return (
     <main>
       <h1>Index Page</h1>

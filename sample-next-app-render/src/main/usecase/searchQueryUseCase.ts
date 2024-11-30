@@ -1,7 +1,9 @@
-import { searchQueryPort } from "../dependecyInjection";
+import { SearchQueryPort } from "../port/searchQueryPort";
 
-export class SearQueryUseCase {
-  public static async getSearchQuery(searchQueryPath: string): Promise<string> {
-    return await searchQueryPort.fetchSearchQuery(searchQueryPath);
+export class SearchQueryUseCase {
+  constructor(private searchQueryPort: SearchQueryPort) {}
+
+  public async getSearchQuery(searchQueryPath: string): Promise<string> {
+    return await this.searchQueryPort.fetchSearchQuery(searchQueryPath);
   }
 }

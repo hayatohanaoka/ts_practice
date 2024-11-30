@@ -1,6 +1,6 @@
 "use server";
 import { redirect } from "next/navigation";
-import { SearchQueryGateway } from "@/main/gateway/queryGateway";
+import { SearchQueryGateway } from "@/main/gateway/searchQueryGateway";
 
 type FormData = {
   input: number;

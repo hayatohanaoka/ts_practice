@@ -1,12 +1,11 @@
-"use client"
-import { SearQueryUseCase } from "@/main/usecase/searchQueryUseCase";
+import { searchQueryUseCase } from "@/main/dependecyInjection";
 import { useState } from "react";
 
 export default function Home() {
 
   const [query, setQuery] = useState('no fetched');
   function doAction() {
-    SearQueryUseCase.getSearchQuery("/v1/industries/UBI100100100/searchQuery").then(
+    searchQueryUseCase.getSearchQuery("/v1/industries/UBI100100100/searchQuery").then(
       searchQuery => setQuery(searchQuery)
     )
   }
